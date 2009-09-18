@@ -304,7 +304,7 @@ module Gattica
         end.join(';')
       end
  
-      query_params.inject(output) {|m,(key,value)| m << "&#{key}=#{value}"}
+      query_params.inject(output) {|m,(key,value)| m << "&#{key.to_s.gsub(/_/,'-')}=#{value}"}
  
       return output
     end
